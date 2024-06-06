@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "filepond/dist/filepond.min.css";
+@import "react-toastify/dist/ReactToastify.css";
+@import "../../node_modules/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
+@import "../../node_modules/filepond/dist/filepond.min.css";
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+img {
+  max-width: 100%;
+}
+
+.table-has-overFlow > div,
+.table-has-overFlow > div > div {
+  overflow: unset;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+$durations: 1.5s;
+$transition-timing-function: ease;
+$transform-X: 100px;
+$transform-Y: 100px;
+.reveal {
+  position: relative;
+  /* transform: translateY($transform-Y); */
+  transform: translateY(100px);
+  opacity: 0;
+  /* transition: $durations all $transition-timing-function; */
+  transition: all 1.5s ease;
+}
+
+.reveal.reveal-active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.reveal-left {
+  position: relative;
+  transform: translateX(-$transform-X);
+  opacity: 0;
+  /* transition: $durations all $transition-timing-function; */
+  transition: all 1.5s ease;
+}
+
+.reveal-left.reveal-left-active {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.reveal-right {
+  position: relative;
+  /* transform: translateX($transform-X); */
+  /* transform: translateY($transform-Y); */
+  transform: translateX(100px);
+  opacity: 0;
+  /* transition: $durations all $transition-timing-function; */
+  transition: all 1.5s ease;
+}
+
+.reveal-right.reveal-right-active {
+  transform: translateX(0);
+  opacity: 1;
+}

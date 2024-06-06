@@ -1,0 +1,42 @@
+$durations: 1.5s;
+$transition-timing-function: ease;
+$transform-X: 100px;
+$transform-Y: 100px;
+.reveal {
+    position: relative;
+    transform: translateY($transform-Y);
+    opacity: 0;
+    transition: $durations all $transition-timing-function;
+}
+
+.reveal.reveal-active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.reveal-left {
+    position: relative;
+    transform: translateX(-$transform-X);
+    opacity: 0;
+    transition: $durations all $transition-timing-function;
+}
+
+.reveal-left.reveal-left-active {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.reveal-right {
+    position: relative;
+    transform: translateX($transform-X);
+    opacity: 0;
+    transition: $durations all $transition-timing-function;
+}
+
+.reveal-right.reveal-right-active {
+    transform: translateX(0);
+    opacity: 1;
+}
+.test {
+    display: flex;
+}
